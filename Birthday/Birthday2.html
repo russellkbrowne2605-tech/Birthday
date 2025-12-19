@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Yen ❤️</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #cce7ff);
+      color: #2d2d2d;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .heart {
+      font-size: 4rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .balloons {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      font-size: 2rem;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
+
+    section {
+      background: #ffffffee;
+      margin: 3rem auto;
+      max-width: 900px;
+      border-radius: 25px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff5e7e, #ff9a5e);
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: linear-gradient(135deg,#ff5e7e,#ff9a5e);
+      color: white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Fade-in for main content */
+    #mainContent {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    #mainContent.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="balloons">
+    <div class="balloon" style="left:10%; animation-duration:12s;">🎈</div>
+    <div class="balloon" style="left:30%; animation-duration:15s;">🎉</div>
+    <div class="balloon" style="left:50%; animation-duration:10s;">🎈</div>
+    <div class="balloon" style="left:70%; animation-duration:18s;">🎂</div>
+    <div class="balloon" style="left:90%; animation-duration:14s;">💖</div>
+  </div>
+  <div class="heart">💖</div>
+  <h1>Happy Birthday, Yen 💕</h1>
+  <h2>Counting down to your special day ✨</h2>
+  <div id="countdown" style="margin-top:2rem;font-size:1.3rem;font-weight:600;"></div>
+</header>
+
+<!-- Main content hidden until countdown -->
+<div id="mainContent">
+  <section>
+    <h3>A Love Letter Just for You 💌</h3>
+    <p id="typewriter" style="min-height:180px;"></p>
+  </section>
+
+  <section>
+    <h3>Our Favorite Moments 💕</h3>
+    <div class="gallery">
+      <img src="Images/photo1.jpg" alt="Us 1">
+      <img src="Images/photo2.jpg" alt="Us 2">
+      <img src="Images/photo3.jpg" alt="Us 3">
+      <img src="Images/photo4.jpg" alt="Us 4">
+      <img src="Images/photo5.jpg" alt="Us 5">
+      <img src="Images/photo6.jpg" alt="Us 6">
+    </div>
+  </section>
+
+  <section>
+    <h3>One More Thing… 🎁</h3>
+    <p>Click the surprise button below… because birthdays should come with a little magic ✨</p>
+    <p style="text-align:center;">
+      <button class="button" onclick="showPDF(event)">Open Your Surprise 💝</button>
+    </p>
+  </section>
+
+  <section id="surprise" style="display:none;">
+    <h3>Your Surprise 💖</h3>
+    <iframe src="surprise.pdf" style="width:100%;height:600px;border:none;border-radius:15px;"></iframe>
+  </section>
+</div>
+
+<footer>
+  Made with ❤️ just for you
+</footer>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="Music/birthday.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  let playing = false;
+  function toggleMusic() {
+    if (!playing) { music.play(); playing = true; }
+    else { music.pause(); playing = false; }
+  }
+
+  // Attempt to play music on page load
+  window.addEventListener('load', () => {
+    music.play().catch(() => {
+      console.log('Auto-play blocked, user interaction required');
+    });
+  });
+
+  // Countdown
+  const targetDate = new Date(new Date().getFullYear(), 11, 21);
+  const countdownEl = document.getElementById('countdown');
+  const mainContent = document.getElementById('mainContent');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = "🎉 It’s your birthday, Yen! 🎂";
+      mainContent.style.display = 'block';
+      setTimeout(() => mainContent.classList.add('show'), 50);
+      return;
+    }
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    countdownEl.innerHTML = `⏳ ${d}d ${h}h ${m}m ${s}s until your birthday 🎂`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Typewriter effect
+  const letterText = "Yen, for almost three years now, loving you has been the most beautiful part of my life. Your thoughtfulness amazes me every day, the way you care, the way you notice the little things, and the way your kindhearted, soulful nature makes everyone around you feel seen. Your beauty goes far beyond what the eye can see; it lives in your heart, your laughter, and your presence. One of my favorite memories will always be our vacation to Miami, the sunshine, the laughs, and how perfect everything felt just being there with you. Thank you for being my safe place, my best friend, and my love. I’m so excited for all the memories still waiting for us. I love you loads baby.";
+  const el = document.getElementById('typewriter');
+  let i = 0;
+  let started = false;
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !started) {
+      started = true;
+      typeWriter();
+    }
+  }, { threshold: 0.4 });
+
+  observer.observe(el);
+
+  function typeWriter() {
+    if (i < letterText.length) {
+      el.innerHTML += letterText.charAt(i++);
+      setTimeout(typeWriter, 40);
+    } else {
+      setTimeout(() => {
+        el.innerHTML += '<br><br><strong>Happy Birthday, Yen ❤️</strong>';
+      }, 600);
+    }
+  }
+
+  // Show PDF
+  function showPDF(e) {
+    e.preventDefault();
+    document.getElementById('surprise').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
